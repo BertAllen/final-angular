@@ -1,0 +1,39 @@
+<html ng-app="MasterController">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Final Angular Art Project</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/art-styles.css">
+</head>
+
+<body ng-controller="ArtCollector as ac">
+    <div class="row container-fluid">
+
+        <p>Build your Art Collection!</p>
+        <div class="col-md-6">
+            <input type="text" placeholder="Title of art piece" ng-model="art.title" /> </br>
+            <input type="text" placeholder="Artist who created it" ng-model="art.artist" /> </br>
+            <input type="url" placeholder="URL for art image" ng-model="art.image" /> </br>
+
+            <button ng-click="myGreatArt(art)">Collect Art</button>
+        </div>
+        <div id="trial-gallery" class="col-md-6">
+            <img src="{{art.image}}" alt="My Great Art" width="150px">
+            <h3>{{art.tltle}}</h3> </br>
+            <h4>{{art.artist}}</h4>
+            <ui-view></ui-view>
+        </div>
+    </div>
+
+    <ul>
+        <li ng-repeat="piece in gallery track by $index">{{piece}}<span ng-click="sellArt($index)">X</span></li>
+    </ul>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/artCollector.js"></script>
+</body>
+
+</html>
