@@ -20,17 +20,17 @@
             <button ng-click="myGreatArt(art)">Collect Art</button>
         </div>
         <div id="trial-gallery" class="col-md-6">
-            <img src="{{art.image}}" alt="My Great Art" width="150px">
-            <h3>{{art.tltle}}</h3> </br>
+            <img src="{{art.image}}" alt="My Great Art" width="300px">
+            <h3>{{art.title}}</h3>
             <h4>{{art.artist}}</h4>
             <ui-view></ui-view>
         </div>
     </div>
-
-    <ul>
-        <li ng-repeat="piece in gallery track by $index">{{piece}}<span ng-click="sellArt($index)">X</span></li>
+<div class="row container-fluid">
+    <ul class="col-md-4" ng-repeat="piece in gallery track by $index">
+        <li> <img src="{{piece.image}}" alt="" width="150px"> <h4>{{piece.title}}</h4> <h5>{{piece.artist}}</h5><span class="badge" ng-click="sellArt($index)">$</span></li>
     </ul>
-
+</div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"></script>
     <script src="app/app.js"></script>
     <script src="app/artCollector.js"></script>
