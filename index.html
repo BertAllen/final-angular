@@ -8,14 +8,17 @@
     <link rel="stylesheet" href="styles/art-styles.css">
 </head>
 
+<!--Thanks Jake! This was tough at first (I'll tell you about it later) but I'm glad you had me do it ... 
+... I needed to know that I could!-->
+
 <body ng-controller="ArtCollector as ac">
     <div class="row container-fluid">
 
-        <p>Build your Art Collection!</p>
+        <h1>Build your Art Collection!</h1>
         <div class="col-md-6">
-            <input type="text" placeholder="Title of art piece" ng-model="art.title" /> </br>
-            <input type="text" placeholder="Artist who created it" ng-model="art.artist" /> </br>
-            <input type="url" placeholder="URL for art image" ng-model="art.image" /> </br>
+            <input type="text" placeholder="Title of art piece" ng-model="art.title" /> </br></br>
+            <input type="text" placeholder="Artist who created it" ng-model="art.artist" /> </br></br>
+            <input type="url" placeholder="URL for art image" ng-model="art.image" /> </br></br>
 
             <button ng-click="myGreatArt(art)">Collect Art</button>
         </div>
@@ -23,13 +26,13 @@
             <img src="{{art.image}}" alt="My Great Art" width="300px">
             <h3>{{art.title}}</h3>
             <h4>{{art.artist}}</h4>
-            <ui-view></ui-view>
         </div>
     </div>
-<div class="row container-fluid">
-    <ul class="col-md-4" ng-repeat="piece in gallery track by $index">
-        <li> <img src="{{piece.image}}" alt="" width="150px"> <h4>{{piece.title}}</h4> <h5>{{piece.artist}}</h5><span class="badge" ng-click="sellArt($index)">$</span></li>
-    </ul>
+<div id="collection" class="row container-fluid">
+    <h3 id="centered">~ ~ ~ ~ ~ Your Gallery ~ ~ ~ ~ ~</h3>
+    <div class="col-md-4" ng-repeat="piece in gallery track by $index">
+        <div> <img src="{{piece.image}}" alt="" width="150px"> <h4>{{piece.title}}</h4> <h5>{{piece.artist}}</h5><span class="badge" ng-click="sellArt($index)">$</span></div>
+    </div>
 </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"></script>
     <script src="app/app.js"></script>
